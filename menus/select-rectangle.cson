@@ -1,0 +1,24 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable select-rectangle': 'select-rectangle:select'
+      'Enable select-rectangle': 'select-rectangle:copy'
+      'Enable select-rectangle': 'select-rectangle:cut'
+      'Enable select-rectangle': 'select-rectangle:replace-with-blank'
+      'Enable select-rectangle': 'select-rectangle:insert-blank'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Select Rectangle'
+      'submenu': [
+        { 'label': 'Select', 'command': 'select-rectangle:select' },
+        { 'label': 'Copy', 'command': 'select-rectangle:copy' },
+        { 'label': 'Cut', 'command': 'select-rectangle:cut' },
+        { 'label': 'Replace With Blank', 'command': 'select-rectangle:replace-with-blank' },
+        { 'label': 'Insert Blank', 'command': 'select-rectangle:insert-blank' },
+      ]
+    ]
+  }
+]
