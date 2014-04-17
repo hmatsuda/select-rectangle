@@ -1,7 +1,7 @@
 {
   "name": "select-rectangle",
   "main": "./lib/select-rectangle",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Copy, cut, replace or insert to Selected rectangle region.",
   "activationEvents": [
     "select-rectangle:select",
@@ -12,7 +12,8 @@
   ],
   "repository": "https://github.com/hmatsuda/select-rectangle",
   "license": "MIT",
-  "engines": {"atom": ">=0.50.0"},
-  "dependencies": {
-  }
+  "engines": {
+    "atom": ">=0.50.0"
+  },
+  "dependencies": {}
 }
