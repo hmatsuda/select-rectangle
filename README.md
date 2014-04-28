@@ -1,4 +1,4 @@
-# select-rectangle package
+# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle)
 
 Copy, cut, replace or insert to selected rectangle region.
 
