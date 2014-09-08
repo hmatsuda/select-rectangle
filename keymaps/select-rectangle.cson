@@ -8,8 +8,6 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 '.workspace':
-  'cmd-r cmd-s': 'select-rectangle:select'
-  'cmd-r cmd-x': 'select-rectangle:cut'
-  'cmd-r cmd-c': 'select-rectangle:copy'
+  'alt': 'select-rectangle:select'
   'cmd-r cmd-r': 'select-rectangle:replace-with-blank'
   'cmd-r cmd-i': 'select-rectangle:insert-blank'

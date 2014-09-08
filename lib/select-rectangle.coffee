@@ -4,12 +4,6 @@ module.exports =
     atom.workspaceView.command "select-rectangle:select", '.editor', ->
       editor = atom.workspace.activePaneItem
       select(editor)
-    atom.workspaceView.command "select-rectangle:copy", '.editor', ->
-      editor = atom.workspace.activePaneItem
-      copy(editor)
-    atom.workspaceView.command "select-rectangle:cut", '.editor', ->
-      editor = atom.workspace.activePaneItem
-      cut(editor)
     atom.workspaceView.command "select-rectangle:replace-with-blank", '.editor', ->
       editor = atom.workspace.activePaneItem
       replaceWithBlank(editor)
@@ -22,57 +16,30 @@ select = (editor) ->
   rectangleRanges = _getRangesOfRectangle(selectionRange)
   editor.setSelectedBufferRanges(rectangleRanges)
 
-copy = (editor) ->
-  selectionRange = editor.getSelection().getBufferRange()
-  rectangleRanges = _getRangesOfRectangle(selectionRange)
-  editor.setSelectedBufferRanges(rectangleRanges)
-
-  editor.copySelectedText()
-  editor.setCursorBufferPosition [
-    selectionRange.end.row
-    selectionRange.end.column
-  ]
-
-cut = (editor) ->
-  selectionRange = editor.getSelection().getBufferRange()
-  rectangleRanges = _getRangesOfRectangle(selectionRange)
-  editor.setSelectedBufferRanges(rectangleRanges)
-
-  editor.cutSelectedText()
-
-  editor.setCursorBufferPosition [
-    selectionRange.end.row
-    selectionRange.start.column
-  ]
-
 replaceWithBlank = (editor) ->
-  selectionRange = editor.getSelection().getBufferRange()
-  rectangleRanges = _getRangesOfRectangle(selectionRange)
-  editor.setSelectedBufferRanges(rectangleRanges)
+  rectangleRanges = editor.getSelectedBufferRanges()
 
   editor.copySelectedText()
-  blankText = _createBlankTextBy(_getLengthOf(selectionRange))
+  blankText = _createBlankTextBy(_getLengthOf(rectangleRanges[0]))
   editor.insertText(blankText)
 
   editor.setCursorBufferPosition [
-    selectionRange.end.row
-    selectionRange.end.column
+    rectangleRanges[rectangleRanges.length - 1].end.row
+    rectangleRanges[rectangleRanges.length - 1].end.column
   ]
 
 insertBlank = (editor) ->
-  selectionRange = editor.getSelection().getBufferRange()
-  rectangleRanges = _getRangesOfRectangle(selectionRange)
-  editor.setSelectedBufferRanges(rectangleRanges)
+  rectangleRanges = editor.getSelectedBufferRanges()
 
   editor.transact ->
-    blankText = _createBlankTextBy(_getLengthOf(selectionRange))
+    blankText = _createBlankTextBy(_getLengthOf(rectangleRanges[0]))
     for range in rectangleRanges
       selectedText = editor.getTextInBufferRange(range)
       editor.setTextInBufferRange(range, "#{blankText}#{selectedText}")
 
   editor.setCursorBufferPosition [
-    selectionRange.end.row
-    selectionRange.end.column
+    rectangleRanges[rectangleRanges.length - 1].end.row
+    rectangleRanges[rectangleRanges.length - 1].end.column
   ]
 
 _getRangesOfRectangle = (selectionRange) ->
