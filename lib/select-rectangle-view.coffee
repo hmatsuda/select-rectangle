@@ -2,18 +2,28 @@
 
 module.exports =
 class SelectRectangleView extends View
+  originalSelectionRange: null
+  
   @content: ->
     @div class: 'select-rectangle overlay from-top'
 
   initialize: (serializeState) ->
+    @subscribe atom.workspace.activePaneItem.getSelection(), 'destroyed', =>
+      @originalSelectionRange = null
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
 
   select: (editor) ->
-    selectionRange = editor.getSelection().getBufferRange()
-    rectangleRanges = @_getRangesOfRectangle(selectionRange)
-    editor.setSelectedBufferRanges(rectangleRanges)
+    if @originalSelectionRange is null
+      @originalSelectionRange = selectionRange = editor.getSelection().getBufferRange()
+
+      rectangleRanges = @_getRangesOfRectangle(selectionRange)
+      editor.setSelectedBufferRanges(rectangleRanges)
+    else
+      editor.setSelectedBufferRange(@originalSelectionRange)
+      @originalSelectionRange = null
+    
 
   replaceWithBlank: (editor) ->
     rectangleRanges = editor.getSelectedBufferRanges()
