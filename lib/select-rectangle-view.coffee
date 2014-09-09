@@ -29,9 +29,9 @@ class SelectRectangleView extends View
 
   insertBlank: (editor) ->
     rectangleRanges = editor.getSelectedBufferRanges()
+    blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
 
     editor.transact ->
-      blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
       for range in rectangleRanges
         selectedText = editor.getTextInBufferRange(range)
         editor.setTextInBufferRange(range, "#{blankText}#{selectedText}")
