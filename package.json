@@ -2,11 +2,9 @@
   "name": "select-rectangle",
   "main": "./lib/select-rectangle",
   "version": "0.1.0",
-  "description": "Copy, cut, replace or insert to Selected rectangle region.",
+  "description": "Select rectangle region.",
   "activationEvents": [
     "select-rectangle:select",
-    "select-rectangle:copy",
-    "select-rectangle:cut",
     "select-rectangle:replace-with-blank",
     "select-rectangle:insert-blank"
   ],
