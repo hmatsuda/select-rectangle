@@ -8,13 +8,14 @@ class SelectRectangleView extends View
     @div class: 'select-rectangle overlay from-top'
 
   initialize: (serializeState) ->
-    @subscribe atom.workspace.activePaneItem.getSelection(), 'destroyed', =>
-      @originalSelectionRange = null
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
 
   select: (editor) ->
+    @subscribe atom.workspace.activePaneItem.getSelection(), 'destroyed', =>
+      @originalSelectionRange = null
+
     if @originalSelectionRange is null
       @originalSelectionRange = selectionRange = editor.getSelection().getBufferRange()
 
@@ -37,6 +38,8 @@ class SelectRectangleView extends View
       rectangleRanges[rectangleRanges.length - 1].end.column
     ]
 
+    @originalSelectionRange = null
+    
   insertBlank: (editor) ->
     rectangleRanges = editor.getSelectedBufferRanges()
     blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
@@ -50,6 +53,9 @@ class SelectRectangleView extends View
       rectangleRanges[rectangleRanges.length - 1].end.row
       rectangleRanges[rectangleRanges.length - 1].end.column
     ]
+    
+    @originalSelectionRange = null
+
 
   _getRangesOfRectangle: (selectionRange) ->
     for row in [selectionRange.start.row..selectionRange.end.row]
