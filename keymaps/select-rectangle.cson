@@ -9,5 +9,5 @@
 # https://atom.io/docs/latest/advanced/keymaps
 '.workspace':
   'alt-s': 'select-rectangle:select'
-  'cmd-r cmd-r': 'select-rectangle:replace-with-blank'
-  'cmd-r cmd-i': 'select-rectangle:insert-blank'
+  'cmd-alt-r': 'select-rectangle:replace-with-blank'
+  'cmd-alt-i': 'select-rectangle:insert-blank'
