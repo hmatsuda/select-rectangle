@@ -4,3 +4,7 @@
 Select rectangle region.
 
 ![A screenshot of your spankin' package](http://f.cl.ly/items/2B3x3u0O3C3R2m2y303U/select_rectangle480.gif)
+
+* `alt-s` - Select rectangle region
+* `alt-r` - Replace selected rectangle region with white space
+* `alt-a` - Add white spaces before selected rectangle region
