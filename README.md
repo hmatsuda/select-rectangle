@@ -1,4 +1,4 @@
-# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky)](https://ci.appveyor.com/project/hmatsuda/select-rectangle)
+# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)
 
 
 Select rectangle region.
