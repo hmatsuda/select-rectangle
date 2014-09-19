@@ -9,8 +9,8 @@ describe "SelectRectangle", ->
     waitsForPromise -> activationPromise
     runs(callback)
   
-  insertBlank = (callback) ->
-    editorView.trigger "select-rectangle:insert-blank"
+  addBlank = (callback) ->
+    editorView.trigger "select-rectangle:add-blank"
     waitsForPromise -> activationPromise
     runs(callback)
 
@@ -60,8 +60,8 @@ describe "SelectRectangle", ->
     
       expect(editor.getCursorBufferPosition()).toEqual new Point(2, 6)
 
-    it "inserts blank into area of selected lines", ->
-      insertBlank ->
+    it "adds blank into area of selected lines", ->
+      addBlank ->
         expect(editor.getText()).toBe """
           aaa   bbbccc
           aaa   bbbccc

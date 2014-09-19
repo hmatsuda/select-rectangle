@@ -8,9 +8,9 @@ module.exports =
     atom.workspaceView.command "select-rectangle:replace-with-blank", '.editor', =>
       editor = atom.workspace.activePaneItem
       @createSelectRectangleView().replaceWithBlank(editor)
-    atom.workspaceView.command "select-rectangle:insert-blank", '.editor', =>
+    atom.workspaceView.command "select-rectangle:add-blank", '.editor', =>
       editor = atom.workspace.activePaneItem
-      @createSelectRectangleView().insertBlank(editor)
+      @createSelectRectangleView().addBlank(editor)
 
   createSelectRectangleView: ->
     unless @selectRectangleView?

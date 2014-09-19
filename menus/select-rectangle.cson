@@ -3,7 +3,7 @@
   '.overlayer':
       'Enable select-rectangle': 'select-rectangle:select'
       'Enable select-rectangle': 'select-rectangle:replace-with-blank'
-      'Enable select-rectangle': 'select-rectangle:insert-blank'
+      'Enable select-rectangle': 'select-rectangle:add-blank'
 
 'menu': [
   {
@@ -15,7 +15,7 @@
         { 'label': 'Copy', 'command': 'select-rectangle:copy' },
         { 'label': 'Cut', 'command': 'select-rectangle:cut' },
         { 'label': 'Replace With Blank', 'command': 'select-rectangle:replace-with-blank' },
-        { 'label': 'Insert Blank', 'command': 'select-rectangle:insert-blank' },
+        { 'label': 'Add Blank', 'command': 'select-rectangle:add-blank' },
       ]
     ]
   }

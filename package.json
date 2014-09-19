@@ -6,7 +6,7 @@
   "activationEvents": [
     "select-rectangle:select",
     "select-rectangle:replace-with-blank",
-    "select-rectangle:insert-blank"
+    "select-rectangle:add-blank"
   ],
   "repository": "https://github.com/hmatsuda/select-rectangle",
   "license": "MIT",

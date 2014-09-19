@@ -38,7 +38,7 @@ class SelectRectangleView extends View
         rectangleRanges[rectangleRanges.length - 1].end.column
       ]
     
-  insertBlank: (editor) ->
+  addBlank: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
       atom.workspaceView.append(this)
     else
