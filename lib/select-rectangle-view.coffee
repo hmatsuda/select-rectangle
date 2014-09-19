@@ -25,7 +25,7 @@ class SelectRectangleView extends View
     
   replaceWithBlank: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
-      atom.workspaceView.append(this)
+      atom.beep()
     else
       rectangleRanges = editor.getSelectedBufferRanges()
 
@@ -40,7 +40,7 @@ class SelectRectangleView extends View
     
   addBlank: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
-      atom.workspaceView.append(this)
+      atom.beep()
     else
       rectangleRanges = editor.getSelectedBufferRanges()
       blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
