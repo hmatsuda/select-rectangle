@@ -2,59 +2,58 @@
 
 module.exports =
 class SelectRectangleView extends View
-  originalSelectionRange: null
   
   @content: ->
-    @div class: 'select-rectangle overlay from-top'
+    @div class: 'select-rectangle-package overlay from-top', =>
+      @div "Please select-rectangle at first!", class: "message"
 
   initialize: (serializeState) ->
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
+    
+  destroy: ->
 
   select: (editor) ->
-    @subscribe atom.workspace.activePaneItem.getSelection(), 'destroyed', =>
-      @originalSelectionRange = null
-
-    if @originalSelectionRange is null
-      @originalSelectionRange = selectionRange = editor.getSelection().getBufferRange()
-
+    if editor.getSelectedBufferRanges().length is 1
+      selectionRange = editor.getSelection().getBufferRange()
       rectangleRanges = @_getRangesOfRectangle(selectionRange)
       editor.setSelectedBufferRanges(rectangleRanges)
     else
-      editor.setSelectedBufferRange(@originalSelectionRange)
-      @originalSelectionRange = null
+      ranges = editor.getSelectedBufferRanges()
+      editor.setSelectedBufferRange([ranges[0].start, ranges[ranges.length - 1].end])
     
-
   replaceWithBlank: (editor) ->
-    rectangleRanges = editor.getSelectedBufferRanges()
+    if editor.getSelectedBufferRanges().length is 1
+      atom.workspaceView.append(this)
+    else
+      rectangleRanges = editor.getSelectedBufferRanges()
 
-    editor.copySelectedText()
-    blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
-    editor.insertText(blankText)
+      editor.copySelectedText()
+      blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
+      editor.insertText(blankText)
 
-    editor.setCursorBufferPosition [
-      rectangleRanges[rectangleRanges.length - 1].end.row
-      rectangleRanges[rectangleRanges.length - 1].end.column
-    ]
-
-    @originalSelectionRange = null
+      editor.setCursorBufferPosition [
+        rectangleRanges[rectangleRanges.length - 1].end.row
+        rectangleRanges[rectangleRanges.length - 1].end.column
+      ]
     
   insertBlank: (editor) ->
-    rectangleRanges = editor.getSelectedBufferRanges()
-    blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
+    if editor.getSelectedBufferRanges().length is 1
+      atom.workspaceView.append(this)
+    else
+      rectangleRanges = editor.getSelectedBufferRanges()
+      blankText = @_createBlankTextBy(@_getLengthOf(rectangleRanges[0]))
 
-    editor.transact ->
-      for range in rectangleRanges
-        selectedText = editor.getTextInBufferRange(range)
-        editor.setTextInBufferRange(range, "#{blankText}#{selectedText}")
+      editor.transact ->
+        for range in rectangleRanges
+          selectedText = editor.getTextInBufferRange(range)
+          editor.setTextInBufferRange(range, "#{blankText}#{selectedText}")
 
-    editor.setCursorBufferPosition [
-      rectangleRanges[rectangleRanges.length - 1].end.row
-      rectangleRanges[rectangleRanges.length - 1].end.column
-    ]
-    
-    @originalSelectionRange = null
+      editor.setCursorBufferPosition [
+        rectangleRanges[rectangleRanges.length - 1].end.row
+        rectangleRanges[rectangleRanges.length - 1].end.column
+      ]
 
 
   _getRangesOfRectangle: (selectionRange) ->
