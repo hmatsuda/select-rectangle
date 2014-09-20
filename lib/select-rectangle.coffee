@@ -5,12 +5,12 @@ module.exports =
     atom.workspaceView.command "select-rectangle:select", '.editor', =>
       editor = atom.workspace.activePaneItem
       @createSelectRectangleView().select(editor)
-    atom.workspaceView.command "select-rectangle:replace-with-blank", '.editor', =>
+    atom.workspaceView.command "select-rectangle:clear", '.editor', =>
       editor = atom.workspace.activePaneItem
-      @createSelectRectangleView().replaceWithBlank(editor)
-    atom.workspaceView.command "select-rectangle:add-blank", '.editor', =>
+      @createSelectRectangleView().clear(editor)
+    atom.workspaceView.command "select-rectangle:open", '.editor', =>
       editor = atom.workspace.activePaneItem
-      @createSelectRectangleView().addBlank(editor)
+      @createSelectRectangleView().open(editor)
 
   createSelectRectangleView: ->
     unless @selectRectangleView?

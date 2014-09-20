@@ -4,13 +4,13 @@ SelectRectangle = require '../lib/select-rectangle'
 describe "SelectRectangle", ->
   [activationPromise, editor, editorView] = []
 
-  replaceWithBlank = (callback) ->
-    editorView.trigger "select-rectangle:replace-with-blank"
+  clear = (callback) ->
+    editorView.trigger "select-rectangle:clear"
     waitsForPromise -> activationPromise
     runs(callback)
   
-  addBlank = (callback) ->
-    editorView.trigger "select-rectangle:add-blank"
+  open = (callback) ->
+    editorView.trigger "select-rectangle:open"
     waitsForPromise -> activationPromise
     runs(callback)
 
@@ -45,7 +45,7 @@ describe "SelectRectangle", ->
 
     
     it "replaces rectangle area of selected lines with blank", ->
-      replaceWithBlank ->
+      clear ->
         expect(editor.getText()).toBe """
           aaa   ccc
           aaa   ccc
@@ -61,7 +61,7 @@ describe "SelectRectangle", ->
       expect(editor.getCursorBufferPosition()).toEqual new Point(2, 6)
 
     it "adds blank into area of selected lines", ->
-      addBlank ->
+      open ->
         expect(editor.getText()).toBe """
           aaa   bbbccc
           aaa   bbbccc

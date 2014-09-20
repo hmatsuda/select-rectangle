@@ -23,7 +23,7 @@ class SelectRectangleView extends View
       ranges = editor.getSelectedBufferRanges()
       editor.setSelectedBufferRange([ranges[0].start, ranges[ranges.length - 1].end])
     
-  replaceWithBlank: (editor) ->
+  clear: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
       atom.beep()
     else
@@ -38,7 +38,7 @@ class SelectRectangleView extends View
         rectangleRanges[rectangleRanges.length - 1].end.column
       ]
     
-  addBlank: (editor) ->
+  open: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
       atom.beep()
     else

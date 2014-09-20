@@ -5,8 +5,8 @@
   "description": "Select rectangle region.",
   "activationEvents": [
     "select-rectangle:select",
-    "select-rectangle:replace-with-blank",
-    "select-rectangle:add-blank"
+    "select-rectangle:clear",
+    "select-rectangle:open"
   ],
   "repository": "https://github.com/hmatsuda/select-rectangle",
   "license": "MIT",
