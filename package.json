@@ -1,7 +1,7 @@
 {
   "name": "select-rectangle",
   "main": "./lib/select-rectangle",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Select rectangle region.",
   "activationEvents": [
     "select-rectangle:select",
