@@ -1,6 +1,20 @@
-# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky)](https://ci.appveyor.com/project/hmatsuda/select-rectangle)
+# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)
+![A screenshot of your spankin' package](http://cl.ly/image/3I2C2k232e10/select-rectangle.gif)
 
+## Installation
+```sh
+apm install select-rectangle
+```
+or find it in the Packages tab under settings
 
-Copy, cut, replace or insert to selected rectangle region.
+## Usage
+### Select `alt-s`
+At first, select region that you want to do.
+Next, press `alt-s` to select rectangle region.
+After that, You can copy, cut or following actions. 
 
-![A screenshot of your spankin' package](http://f.cl.ly/items/2B3x3u0O3C3R2m2y303U/select_rectangle480.gif)
+### Clear `alt-cmd-c`
+After selecting rectangle region by `alt-s`, `alt-cmd-c` clears the region-rectangle by replacing all of its contents with spaces
+
+### Open `alt-cmd-o`
+After selecting rectangle region by `alt-s`, `alt-cmd-o` inserts blank space to fill the space of the region-rectangle (open-rectangle). This pushes the previous contents of the region-rectangle to the right. 
