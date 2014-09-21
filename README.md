@@ -10,11 +10,11 @@ or find it in the Packages tab under settings
 ## Usage
 ### Select `alt-s`
 At first, select region that you want to do.
-Next, press `alt-s` to select rectangle region.
+Next, press `alt-s` to select rectangle region. if repeating the `alt-s` would go back to the initial selection.
 After that, You can copy, cut or following actions. 
 
 ### Clear `alt-cmd-c`
-After selecting rectangle region by `alt-s`, `alt-cmd-c` clears the region-rectangle by replacing all of its contents with spaces
+After selecting rectangle region by `alt-s`, `alt-cmd-c` clears the region-rectangle by replacing all of its contents with spaces.
 
 ### Open `alt-cmd-o`
 After selecting rectangle region by `alt-s`, `alt-cmd-o` inserts blank space to fill the space of the region-rectangle (open-rectangle). This pushes the previous contents of the region-rectangle to the right. 
