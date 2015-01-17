@@ -1,7 +1,7 @@
-{View, Range} = require 'atom'
+{Range} = require 'atom'
 
 module.exports =
-class SelectRectangleView extends View
+class SelectRectangleView
   
   @content: ->
     @div class: 'select-rectangle-package overlay from-top', =>
@@ -16,7 +16,7 @@ class SelectRectangleView extends View
 
   select: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
-      selectionRange = editor.getSelection().getBufferRange()
+      selectionRange = editor.getLastSelection().getBufferRange()
       rectangleRanges = @_getRangesOfRectangle(selectionRange)
       editor.setSelectedBufferRanges(rectangleRanges)
     else

@@ -2,14 +2,14 @@ SelectRectangleView = require './select-rectangle-view'
 module.exports =
   
   activate: (state) ->
-    atom.workspaceView.command "select-rectangle:select", '.editor', =>
-      editor = atom.workspace.activePaneItem
+    atom.commands.add 'atom-text-editor', "select-rectangle:select", =>
+      editor = atom.workspace.getActiveTextEditor()
       @createSelectRectangleView().select(editor)
-    atom.workspaceView.command "select-rectangle:clear", '.editor', =>
-      editor = atom.workspace.activePaneItem
+    atom.commands.add 'atom-text-editor', "select-rectangle:clear", =>
+      editor = atom.workspace.getActiveTextEditor()
       @createSelectRectangleView().clear(editor)
-    atom.workspaceView.command "select-rectangle:open", '.editor', =>
-      editor = atom.workspace.activePaneItem
+    atom.commands.add 'atom-text-editor', "select-rectangle:open", =>
+      editor = atom.workspace.getActiveTextEditor()
       @createSelectRectangleView().open(editor)
 
   createSelectRectangleView: ->
