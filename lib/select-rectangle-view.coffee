@@ -16,7 +16,7 @@ class SelectRectangleView
 
   select: (editor) ->
     if editor.getSelectedBufferRanges().length is 1
-      selectionRange = editor.getSelection().getBufferRange()
+      selectionRange = editor.getLastSelection().getBufferRange()
       rectangleRanges = @_getRangesOfRectangle(selectionRange)
       editor.setSelectedBufferRanges(rectangleRanges)
     else
