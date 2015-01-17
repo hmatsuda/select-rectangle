@@ -1,7 +1,7 @@
-{View, Range} = require 'atom'
+{Range} = require 'atom'
 
 module.exports =
-class SelectRectangleView extends View
+class SelectRectangleView
   
   @content: ->
     @div class: 'select-rectangle-package overlay from-top', =>
