@@ -1,5 +1,6 @@
-# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master)
+# select-rectangle package [![Build Status](https://travis-ci.org/hmatsuda/select-rectangle.svg?branch=master)](https://travis-ci.org/hmatsuda/select-rectangle) [![Build status](https://ci.appveyor.com/api/projects/status/ocqrj3udf4ta6oky/branch/master?svg=true)](https://ci.appveyor.com/project/hmatsuda/select-rectangle/branch/master)
 ![A screenshot of your spankin' package](http://cl.ly/image/3I2C2k232e10/select-rectangle.gif)
+
 
 ## Installation
 ```sh
