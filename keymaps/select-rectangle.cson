@@ -7,7 +7,7 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'.workspace':
+'atom-text-editor':
   'alt-s': 'select-rectangle:select'
   'alt-cmd-c': 'select-rectangle:clear'
   'alt-cmd-o': 'select-rectangle:open'
