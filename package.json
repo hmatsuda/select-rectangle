@@ -3,11 +3,6 @@
   "main": "./lib/select-rectangle",
   "version": "1.0.0",
   "description": "Select rectangle region.",
-  "activationCommands": {
-    "atom-text-editor": [
-      "select-rectangle:select"
-    ]
-  },
   "repository": "https://github.com/hmatsuda/select-rectangle",
   "license": "MIT",
   "engines": {
